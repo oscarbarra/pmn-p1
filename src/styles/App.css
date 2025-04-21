@@ -1,0 +1,25 @@
+.app-container {
+  display: flex;
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Sidebar visible en pantallas grandes */
+.with-sidebar .main-content {
+  margin-left: 16rem; /* 256px */
+}
+
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Responsive: colapsar sidebar en pantallas pequeñas */
+@media (max-width: 768px) {
+  .with-sidebar .main-content {
+    margin-left: 0;
+  }
+}
