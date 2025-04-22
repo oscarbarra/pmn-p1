@@ -2,13 +2,13 @@
 import './styles/App.css';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 import Sidebar from './components/Sidebar';
-import Home from './Home';
-import Tareas from './Tareas';
-import Notificaciones from './Notificaciones';
-import Perfil from './Perfil';
+import Home from './pages/home/Home';
+import Tareas from './pages/tasks/Tareas';
+import Notificaciones from './pages/notifications/Notificaciones';
+import Perfil from './pages/profile/Perfil';
 import ProtectedRoute from './ProtectedRoute';
 
 function App() {

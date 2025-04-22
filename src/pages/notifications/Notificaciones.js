@@ -1,4 +1,4 @@
-import './styles/Notificaciones.css';
+import './Notificaciones.css';
 
 function Notificaciones() {
   return (

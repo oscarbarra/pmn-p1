@@ -1,6 +1,6 @@
+import './Autentificacion.css';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './styles/Autentificacion.css';
 
 function Register() {
   const [username, setUsername] = useState('');

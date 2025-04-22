@@ -1,4 +1,4 @@
-import './styles/Perfil.css';
+import './Perfil.css';
 
 function Perfil() {
   return (

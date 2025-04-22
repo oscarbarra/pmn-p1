@@ -1,4 +1,4 @@
-import './styles/Tareas.css';
+import './Tareas.css';
 
 function Tareas() {
   return (
