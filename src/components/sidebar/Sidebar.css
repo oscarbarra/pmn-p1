@@ -37,7 +37,7 @@
   }
   
 .nav-link.active {
-    background-image: linear-gradient(to right, #0f0f0f, #353535, #414141);
+    background-image: linear-gradient(to right, #0f0f0f, #1a1818, #414141);
     color: white;
   }
 

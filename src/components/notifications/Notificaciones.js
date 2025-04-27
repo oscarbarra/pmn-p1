@@ -1,7 +1,7 @@
 import React from 'react';
-import './Tareas.css';
+import './Notificaciones.css';
 
-const Tareas = ({ leaderName, leaderEmail, groupName, groupRole, taskName, status, deadline }) => {
+const Notificaciones = ({ leaderName, leaderEmail, taskName, deadline }) => {
   return (
     <tr>
       <td>
@@ -14,15 +14,10 @@ const Tareas = ({ leaderName, leaderEmail, groupName, groupRole, taskName, statu
         </div>
       </td>
 
-      <td>
-        <p className="group-name">{groupName}</p>
-        <p className="group-role">{groupRole}</p>
-      </td>
       <td className="other-info">{taskName}</td>
-      <td className="other-info">{status}</td>
       <td className="other-info">{deadline}</td>
     </tr>
   );
 };
 
-export default Tareas;
+export default Notificaciones;

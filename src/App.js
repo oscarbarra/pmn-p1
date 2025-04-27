@@ -7,7 +7,9 @@ import Register from './pages/auth/Register';
 import Sidebar from './components/sidebar/Sidebar';
 import Home from './pages/home/Home';
 import TablaDeTareas from './pages/tasks/TablaDeTareas';
+import Grupos from './pages/groups/Grupos';
 import Notificaciones from './pages/notifications/Notificaciones';
+import Dashboard from './pages/dashboard/Dashboard';
 import Perfil from './pages/profile/Perfil';
 import ProtectedRoute from './ProtectedRoute';
 
@@ -42,10 +44,28 @@ function App() {
           />
 
           <Route
+            path="/grupos"
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Grupos />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
             path="/notificaciones"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Notificaciones />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Dashboard />
               </ProtectedRoute>
             }
           />

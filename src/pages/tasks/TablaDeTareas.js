@@ -4,7 +4,7 @@ import Tareas from '../../components/tasks/Tareas';
 
 const TablaDeTareas = () => {
   return (
-    <div className="row">
+    <div className="container-task">
       <div className="col-12">
         <div className="card">
           <div className="custom-card-header">
@@ -27,13 +27,31 @@ const TablaDeTareas = () => {
                 </thead>
                 <tbody>
                   <Tareas 
-                    leaderName="John Michael"
-                    leaderEmail="john@creative-tim.com"
-                    groupName="Nombre Grupo"
-                    groupRole="Rol en el Grupo"
-                    taskName="Nombre de la tarea"
+                    leaderName="Oscar Barra"
+                    leaderEmail="obarra@micorreo.cl"
+                    groupName="Grupo 2"
+                    groupRole="miembro"
+                    taskName="Generar formulario de inicio de sesión"
                     status="En Proceso"
-                    deadline="23/04/18"
+                    deadline="5/05/2025"
+                  />
+                  <Tareas 
+                    leaderName="Oscar Barra"
+                    leaderEmail="obarra@micorreo.cl"
+                    groupName="Grupo 2"
+                    groupRole="miembro"
+                    taskName="Generar formulario de inicio de sesión"
+                    status="En Proceso"
+                    deadline="5/05/2025"
+                  />
+                  <Tareas 
+                    leaderName="Oscar Barra"
+                    leaderEmail="obarra@micorreo.cl"
+                    groupName="Grupo 2"
+                    groupRole="miembro"
+                    taskName="Generar formulario de inicio de sesión"
+                    status="En Proceso"
+                    deadline="5/05/2025"
                   />
                 </tbody>
               </table>

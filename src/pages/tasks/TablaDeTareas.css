@@ -1,10 +1,11 @@
 
 /* Titulo de la Tabla*/
-.row {
+.container-task {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  height: 100vh;
 }
 
 .col-12 {
