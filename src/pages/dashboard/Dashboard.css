@@ -1,0 +1,53 @@
+.custom-card-header {
+    position: relative;
+    padding: 1rem;
+    margin: -2rem 0 0 0;
+    z-index: 2;
+}
+  
+.custom-header-content {
+    background: linear-gradient(to right, #0f0f0f, #1a1818, #414141);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.7rem 0;
+}
+  
+.custom-header-title {
+    color: #ffffff;
+    text-transform: capitalize;
+    padding-left: 0.75rem;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap; /* Los gráficos se ajustarán automáticamente a nuevas filas si no caben */
+    gap: 20px; /* Espaciado entre los gráficos */
+    margin: 20px;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center; /* Alinea los elementos horizontalmente al centro */
+    align-items: flex-start; /* Alinea los gráficos verticalmente en la parte superior */
+}
+
+.grafico-row {
+    display: flex;
+    flex-wrap: wrap; /* Asegura que los gráficos se acomoden en una fila si es necesario */
+    justify-content: space-between; /* Distribuye el espacio entre los gráficos */
+    width: 100%;
+}
+
+.grafico-row > * {
+    flex: 1 1 calc(50% - 20px); /* Ocupa el 50% menos el espaciado */
+    width: 100%; /* Ocupa el 100% del espacio disponible */
+    box-sizing: border-box; /* Para que los elementos no desborden */
+}
+
+/* Si hay un solo gráfico, que ocupe toda la fila */
+.grafico-row > *:last-child {
+    flex: 1 1 100%;
+}
