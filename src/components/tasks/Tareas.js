@@ -3,7 +3,7 @@ import './Tareas.css';
 
 const Tareas = ({ leaderName, leaderEmail, groupName, groupRole, taskName, status, deadline }) => {
   return (
-    <tr>
+    <tr className="task-container">
       <td>
         <div className="user-info">
           <img src="/team-7.jpeg" alt="" className="avatar" />

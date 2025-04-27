@@ -48,9 +48,7 @@
   flex: 1 1 auto;
   font-family: Inter, Helvetica, Arial, sans-serif;
   padding: 1rem;
-  padding-bottom: 0.5rem;
-  padding-right: 0;
-  padding-left: 0;
+  padding: 0;
 }
 
 .table-responsive {

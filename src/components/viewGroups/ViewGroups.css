@@ -1,20 +1,17 @@
 .group-card {
   flex: 1 1 calc(33.333% - 1rem);
   min-width: 280px;
+  margin: 1rem ;
+  transition: all 0.3s ease-in-out;
 }
 
-.group-card :last-child {
-  margin-bottom: 1rem;
-}
-
-.card {
-  background-color: white;
+.group-card:hover {
+  background-color: #e7dddd;
   border-radius: 0.5rem;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
 }
 
-.card-body {
-  margin: 0 1rem;
+.group-content {
+  padding: 0.5rem;
 }
 
 .card-title {

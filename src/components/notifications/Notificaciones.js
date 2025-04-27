@@ -3,7 +3,7 @@ import './Notificaciones.css';
 
 const Notificaciones = ({ leaderName, leaderEmail, taskName, deadline }) => {
   return (
-    <tr>
+    <tr className="notification-container">
       <td>
         <div className="user-info">
           <img src="/team-7.jpeg" alt="" className="avatar" />

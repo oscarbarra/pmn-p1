@@ -4,8 +4,8 @@ import './ViewGroups.css'
 function ViewGroups({ nombre, area }) {
   return (
     <div className="group-card">
-        <div className="card">
-            <div className="card-body">
+        <div>
+            <div className="group-content">
                 <h6 className="card-title"> {nombre} </h6>
                 <p className="card-text"> {area} </p>
 
