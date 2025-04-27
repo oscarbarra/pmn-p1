@@ -3,6 +3,10 @@
   min-width: 280px;
 }
 
+.group-card :last-child {
+  margin-bottom: 1rem;
+}
+
 .card {
   background-color: white;
   border-radius: 0.5rem;
@@ -10,11 +14,11 @@
 }
 
 .card-body {
-  padding: 1rem;
+  margin: 0 1rem;
 }
 
 .card-title {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
   font-size: 1rem;
   font-weight: 600;
 }
