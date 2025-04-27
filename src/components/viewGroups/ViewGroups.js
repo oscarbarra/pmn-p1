@@ -1,5 +1,5 @@
 
-import '../pages/home/Home.css'
+import './ViewGroups.css'
 
 function ViewGroups({ nombre, area }) {
   return (

@@ -1,5 +1,5 @@
 import './Home.css';
-import ViewGroups from '../../components/ViewGroups';
+import ViewGroups from '../../components/viewGroups/ViewGroups';
 
 function Home() {
   return (

@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/sidebar/Sidebar';
 import Home from './pages/home/Home';
-import Tareas from './pages/tasks/Tareas';
+import TablaDeTareas from './pages/tasks/TablaDeTareas';
 import Notificaciones from './pages/notifications/Notificaciones';
 import Perfil from './pages/profile/Perfil';
 import ProtectedRoute from './ProtectedRoute';
@@ -36,7 +36,7 @@ function App() {
             path="/tareas"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Tareas />
+                <TablaDeTareas />
               </ProtectedRoute>
             }
           />
