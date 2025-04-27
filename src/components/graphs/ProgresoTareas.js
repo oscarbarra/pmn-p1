@@ -34,6 +34,7 @@ const ProgresoTareasGraph = ({ tareasCompletadas, tareasTotales }) => {
   // Opciones para el gráfico
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       tooltip: {
         callbacks: {
@@ -56,7 +57,7 @@ const ProgresoTareasGraph = ({ tareasCompletadas, tareasTotales }) => {
 
   return (
     <div>
-      <Doughnut data={data} options={options} />
+      <Doughnut data={data} options={options} width={500} height={261} />
     </div>
   );
 };

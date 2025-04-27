@@ -42,6 +42,7 @@ const TareasPorMesGraph = ({ tareasPorMes }) => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top',
@@ -60,7 +61,7 @@ const TareasPorMesGraph = ({ tareasPorMes }) => {
 
   return (
     <div className="graph-container">
-      <Bar data={data} options={options} />
+      <Bar data={data} options={options} height={350} />
     </div>
   );
 };

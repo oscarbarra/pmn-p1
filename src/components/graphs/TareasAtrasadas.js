@@ -22,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const TareasGraph = ({ tareasFinalizadas, tareasAtrasadas }) => {
+const TareasAtrasadas = ({ tareasFinalizadas, tareasAtrasadas }) => {
   const data = {
     labels: ['Tareas'], // Etiqueta para la categoría, en este caso solo una barra: Tareas
     datasets: [
@@ -68,4 +68,4 @@ const TareasGraph = ({ tareasFinalizadas, tareasAtrasadas }) => {
   );
 };
 
-export default TareasGraph;
+export default TareasAtrasadas;
