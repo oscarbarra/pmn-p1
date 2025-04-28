@@ -2,7 +2,7 @@ import './Autentificacion.css';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function Register() {
+function Register({ users }) {
   const [username, setUsername] = useState('');
   const [useremail, setUseremail] = useState('');
   const [userpassword, setUserpassword] = useState('');
@@ -11,8 +11,18 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log('Usuario registrado:', username);
-    navigate('/login'); // Redirige al login después de registrarse
+    const exists = users.find(u => u.username === username && u.useremail === useremail);
+    if (exists){
+      alert('El usuario ya existe');
+    } else if (userpassword === userpasswordconfirm) {
+      users.push({ username, useremail, userpassword });
+      console.log(users)
+      alert('Registro exitoso')
+      navigate('/login'); // Redirige al login después de registrarse
+    } else {
+      alert('Las contraseñas no coinciden')
+    }
+    
   };
 
   return (

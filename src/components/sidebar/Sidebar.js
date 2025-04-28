@@ -60,7 +60,7 @@ function Sidebar({ onLogout }) {
           </li>
           {/* Cerrar sesión */}
           <li>
-            <Link className="nav-link" to="/sign-in" onClick={onLogout}>
+            <Link className="nav-link" to="/login" onClick={onLogout}>
               <i className="material-symbols-rounded opacity-5">login</i>
               <span className="nav-link-text">Cerrar Sesión</span>
             </Link>

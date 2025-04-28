@@ -2,7 +2,7 @@ import './Autentificacion.css';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function Login({ onLogin }) {
+function Login({ onLogin, users}) {
   const [useremail, setUseremail] = useState('');
   const [userpassword, setUserpassword] = useState('');
 
@@ -10,11 +10,9 @@ function Login({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      useremail.trim().toLowerCase() === "admin@gmail.com" &&
-      userpassword.trim() === "1234"
-    ) {
-      onLogin();
+    const userFound = users.find(u => u.useremail === useremail && u.userpassword === userpassword)
+    if (userFound) {
+      onLogin(userFound);
       navigate('/');
     }
   };

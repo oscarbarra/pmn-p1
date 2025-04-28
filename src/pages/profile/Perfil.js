@@ -1,6 +1,27 @@
 import './Perfil.css';
+import { useState } from 'react';
 
-function Perfil() {
+function Perfil({ user, onUpdateUser }) {
+  const [useremail, setUserEmail] = useState('');
+  const [userpassword, setUserPassword] = useState('');
+  const [userpasswordrepetir, setUserPasswordRepetir] = useState('')
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    if (userpassword === userpasswordrepetir) {
+      const updatedUser = { ...user, useremail, userpassword };
+      onUpdateUser(updatedUser);
+      alert('¡Perfil actualizado!');
+
+      // Limpiar formulario si quieres (opcional)
+      setUserEmail('');
+      setUserPassword('');
+      setUserPasswordRepetir('');
+    } else {
+      alert('Las contraseñas NO coincidian')
+    }
+  };
+
   return (
     <div className="profile-container">
       <div className="card">
@@ -13,25 +34,25 @@ function Perfil() {
           <div className="user-info-profile">
             <img src="/team-7.jpeg" alt="user-photo" className="avatar-profile"/>
             <div className="user-details">
-              <p className="user-name-profile">User name</p>
-              <p className="user-email-profile">User email</p>
+              <p className="user-name-profile">{user.username}</p>
+              <p className="user-email-profile">{user.useremail}</p>
             </div>
           </div>
 
           <div>
-            <form>
+            <form onSubmit={handleUpdate}>
               <ul className="form-list">
                 <li>
                   <label htmlFor="email">Cambiar correo</label>
-                  <input id="email" placeholder="nuevo correo" type="email" />
+                  <input id="email" value={useremail} onChange={(e) => setUserEmail(e.target.value)} placeholder="nuevo correo" type="email" />
                 </li>
                 <li>
                   <label htmlFor="password">Cambiar contraseña</label>
-                  <input id="password" placeholder="nueva contraseña" type="password" />
+                  <input id="password" value={userpassword} onChange={(e) => setUserPassword(e.target.value)} placeholder="nueva contraseña" type="password" />
                 </li>
                 <li>
                   <label htmlFor="repeat-password">Repetir contraseña</label>
-                  <input id="repeat-password" placeholder="repetir contraseña" type="password" />
+                  <input id="repeat-password" value={userpasswordrepetir} onChange={(e) => setUserPasswordRepetir(e.target.value)} placeholder="repetir contraseña" type="password" />
                 </li>
                 <li className="button-group">
                   <button type="submit" className="btn-accept">Aceptar</button>

@@ -1,5 +1,6 @@
 
 import './styles/App.css';
+import fakeUsers from './constantes/fakeUsers';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/auth/Login';
@@ -15,15 +16,20 @@ import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const updateCurrentUser = (updatedUser) => {
+    setCurrentUser(updatedUser);
+  };
 
   return (
     <Router>
       <div className={`app-container ${isAuthenticated ? 'with-sidebar' : ''}`}>
-        {isAuthenticated && <Sidebar onLogout={() => setIsAuthenticated(false)} />}
+        {isAuthenticated && <Sidebar onLogout={() => {setCurrentUser(null); setIsAuthenticated(false)}} />}
         <div className="main-content">
         <Routes>
-          <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login onLogin={(user) => {setCurrentUser(user); setIsAuthenticated(true)}} users={fakeUsers}/>} />
+          <Route path="/register" element={<Register users={fakeUsers}/>} />
           
           <Route
             path="/"
@@ -74,7 +80,7 @@ function App() {
             path="/perfil"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Perfil />
+                <Perfil user={currentUser} onUpdateUser={updateCurrentUser}/>
               </ProtectedRoute>
             }
           />
