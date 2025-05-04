@@ -11,18 +11,31 @@ function Register({ users }) {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const exists = users.find(u => u.username === username && u.useremail === useremail);
-    if (exists){
-      alert('El usuario ya existe');
-    } else if (userpassword === userpasswordconfirm) {
-      users.push({ username, useremail, userpassword });
-      console.log(users)
-      alert('Registro exitoso')
-      navigate('/login'); // Redirige al login después de registrarse
-    } else {
-      alert('Las contraseñas no coinciden')
+  
+    // Validaciones básicas
+    if (!username || !useremail || !userpassword || !userpasswordconfirm) {
+      alert('Por favor completa todos los campos.');
+      return;
     }
-    
+  
+    // Verificar si usuario ya existe
+    const exists = users.find(u => u.username === username && u.useremail === useremail);
+    if (exists) {
+      alert('El usuario ya existe.');
+      return;
+    }
+  
+    // Validar coincidencia de contraseñas
+    if (userpassword !== userpasswordconfirm) {
+      alert('Las contraseñas no coinciden.');
+      return;
+    }
+  
+    // Si todo está bien, registrar usuario
+    users.push({ username, useremail, userpassword });
+    console.log(users);
+    alert('Registro exitoso');
+    navigate('/login');
   };
 
   return (

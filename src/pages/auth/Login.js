@@ -10,10 +10,23 @@ function Login({ onLogin, users }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userFound = users.find(u => u.useremail === useremail && u.userpassword === userpassword)
+  
+    // Validar campos vacíos
+    if (!useremail || !userpassword) {
+      alert('Por favor ingresa tu correo y contraseña.');
+      return;
+    }
+  
+    // Buscar usuario
+    const userFound = users.find(
+      u => u.useremail === useremail && u.userpassword === userpassword
+    );
+  
     if (userFound) {
       onLogin(userFound);
       navigate('/');
+    } else {
+      alert('Correo o contraseña incorrectos.');
     }
   };
 
