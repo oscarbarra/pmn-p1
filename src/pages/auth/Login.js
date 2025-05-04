@@ -2,7 +2,7 @@ import './Autentificacion.css';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function Login({ onLogin, users}) {
+function Login({ onLogin, users }) {
   const [useremail, setUseremail] = useState('');
   const [userpassword, setUserpassword] = useState('');
 

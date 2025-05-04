@@ -44,7 +44,7 @@ function App() {
             path="/tareas"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <TablaDeTareas />
+                <TablaDeTareas user={currentUser} />
               </ProtectedRoute>
             }
           />
