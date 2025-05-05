@@ -54,6 +54,24 @@ function Home() {
                     status="En Proceso"
                     deadline="5/05/2025"
                   />
+                  <Tareas 
+                    leaderName="Oscar Barra"
+                    leaderEmail="obarra@micorreo.cl"
+                    groupName="Grupo 2"
+                    groupRole="miembro"
+                    taskName="Generar formulario de inicio de sesión"
+                    status="En Proceso"
+                    deadline="5/05/2025"
+                  />
+                  <Tareas 
+                    leaderName="Oscar Barra"
+                    leaderEmail="obarra@micorreo.cl"
+                    groupName="Grupo 2"
+                    groupRole="miembro"
+                    taskName="Generar formulario de inicio de sesión"
+                    status="En Proceso"
+                    deadline="5/05/2025"
+                  />
                 </tbody>
               </table>
             </div>
