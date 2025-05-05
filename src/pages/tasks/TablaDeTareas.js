@@ -120,18 +120,26 @@ const TablaDeTareas = ({ user }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {tareasOrdenadas.map((tarea) => (
-                    <Tareas
-                      key={tarea.id}
-                      leaderName={tarea.leaderName}
-                      leaderEmail={tarea.leaderEmail}
-                      groupName={tarea.groupName}
-                      groupRole={tarea.groupRole}
-                      taskName={tarea.taskName}
-                      status={tarea.status}
-                      deadline={tarea.deadline}
-                    />
-                  ))}
+                  {tareasOrdenadas.length > 0 ? (
+                    tareasOrdenadas.map((tarea) => (
+                      <Tareas
+                        key={tarea.id}
+                        leaderName={tarea.leaderName}
+                        leaderEmail={tarea.leaderEmail}
+                        groupName={tarea.groupName}
+                        groupRole={tarea.groupRole}
+                        taskName={tarea.taskName}
+                        status={tarea.status}
+                        deadline={tarea.deadline}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="sin_tareas_asignadas">
+                        <p>No tienes tareas asignadas actualmente.</p>
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>

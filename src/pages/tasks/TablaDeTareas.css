@@ -107,3 +107,10 @@
     color: #4a5568;
     text-align: center;
   }
+
+.sin_tareas_asignadas {
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-size: medium !important;
+  margin: 0;
+  padding: 0;
+}
