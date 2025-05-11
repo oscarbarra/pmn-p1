@@ -1,50 +1,35 @@
-.profile-container {
+.profile_container {
     padding: 0;
     background-color: #f4f6f9;
     min-height: 100vh;
   }
   
   .card {
+    padding: 1rem;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     border: 1px solid #e5e5e5;
   }
   
-  .custom-card-header {
-    position: relative;
-    padding: 1rem;
-    margin: -2rem 0 0 0;
-    z-index: 2;
-  }
-  
-  .custom-header-title {
-    color: #ffffff;
-    text-transform: capitalize;
-    padding-left: 0.75rem;
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  
-  .user-info-profile {
+  .user_info_profile {
     display: flex;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
   }
   
-  .avatar-profile {
+  .avatar_profile {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-right: 20px;
   }
   
-  .user-details {
+  .user_details {
     display: flex;
     flex-direction: column;
   }
   
-  .user-name-profile {
+  .user_name_profile {
     font-size: 1.2rem;
     font-weight: bold;
     text-align: left;
@@ -54,7 +39,7 @@
     color: #2d3748;
   }
   
-  .user-email-profile {
+  .user_email_profile {
     font-size: 1rem;
     color: #555;
     line-height: 1.25;
@@ -63,12 +48,12 @@
     font-weight: 400;
   }
   
-  .form-list {
+  .form_list {
     list-style-type: none;
     padding: 0;
   }
   
-  .form-list li {
+  .form_list li {
     margin-bottom: 15px;
   }
   
@@ -87,7 +72,7 @@
     margin-top: 5px;
   }
   
-  .button-group {
+  .button_group {
     display: flex;
     gap: 15px;
     justify-content: flex-end;
@@ -102,25 +87,25 @@
     transition: background-color 0.3s ease;
   }
   
-  .btn-accept {
+  .btn_accept {
     background-color: #3498db;
     color: white;
   }
   
-  .btn-accept:hover {
+  .btn_accept:hover {
     background-color: #2980b9;
   }
   
-  .btn-cancel {
+  .btn_cancel {
     background-color: #e0e0e0;
     color: #333;
   }
   
-  .btn-cancel:hover {
+  .btn_cancel:hover {
     background-color: #bdc3c7;
   }
   
-  .delete-account-section {
+  .delete_account_section {
     margin-top: 30px;
     padding: 20px;
     background-color: #fff3f3;
@@ -129,19 +114,19 @@
     text-align: center;
   }
   
-  .delete-warning {
+  .delete_warning {
     font-size: 1.2rem;
     font-weight: bold;
     color: #e74c3c;
   }
   
-  .delete-info {
+  .delete_info {
     font-size: 1rem;
     color: #e74c3c;
     margin-top: 10px;
   }
   
-  .btn-delete {
+  .btn_delete {
     background-color: #e74c3c;
     color: white;
     padding: 12px 20px;
@@ -152,6 +137,6 @@
     transition: background-color 0.3s ease;
   }
   
-  .btn-delete:hover {
+  .btn_delete:hover {
     background-color: #c0392b;
   }

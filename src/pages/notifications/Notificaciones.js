@@ -1,20 +1,20 @@
-import './Notificaciones.css';
+import notificaciones from './Notificaciones.module.css';
 import Notificaciones from '../../components/notifications/Notificaciones.js';
 
 function TablaDeNotificaciones() {
   return (
-    <div className="container-task">
-      <div className="col-12">
-        <div className="card">
+    <div className={notificaciones.container_task}>
+      <div className={notificaciones.col_12}>
+        <div className={notificaciones.card}>
           <div className="custom-card-header">
             <div className="custom-header-content">
               <h6 className="custom-header-title">Notificaciones</h6>
             </div>
           </div>
 
-          <div className="card-body">
-            <div className="table-responsive">
-              <table className="task-table">
+          <div className={notificaciones.card_body}>
+            <div className={notificaciones.table_responsive}>
+              <table className={notificaciones.task_table}>
                 <thead>
                   <tr>
                     <th>Emisor</th>

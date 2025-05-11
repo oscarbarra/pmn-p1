@@ -1,14 +1,14 @@
 
-.notification-container {
+.notification_container {
   transition: all 0.3s ease-in-out;
 }
 
-.notification-container:hover {
+.notification_container:hover {
   background-color: #e7dddd;
   border-radius: 0.5rem;
 }
 
-.user-info {
+.user_info {
     display: flex;
     justify-content: flex-start;
     padding: 0.25rem 0.5rem;
@@ -29,13 +29,13 @@
     vertical-align: middle;
   }
   
-.user-details {
+.user_details {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
   
-.user-name {
+.user_name {
     font-size: 0.875rem;
     text-align: left;
     line-height: 1.5;
@@ -45,7 +45,7 @@
     color: #2d3748;
   }
   
-.user-email {
+.user_email {
     font-size: 0.75rem;
     line-height: 1.25;
     color: #718096;
@@ -54,7 +54,7 @@
     font-weight: 400;
   }
   
-.group-name {
+.group_name {
     text-align: left;
     font-size: 0.85rem;
     font-weight: 600;
@@ -63,7 +63,7 @@
     margin: 0;
   }
   
-.group-role {
+.group_role {
   text-align: left;
   font-size: 0.85rem;
   font-weight: 400;
@@ -72,7 +72,7 @@
   margin: 0;
   }
 
-.other-info {
+.other_info {
   text-align: left !important;
   font-size: 0.85rem !important;
   font-weight: 400 !important;

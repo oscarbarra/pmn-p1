@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TablaDeTareas.css';
+import tareas from './TablaDeTareas.module.css';
 import Tareas from '../../components/tasks/Tareas';
 
 const TablaDeTareas = ({ user }) => {
@@ -85,9 +85,9 @@ const TablaDeTareas = ({ user }) => {
   });
 
   return (
-    <div className="container-task">
-      <div className="col-12">
-        <div className="card">
+    <div className={tareas.container_task}>
+      <div className={tareas.col_12}>
+        <div className={tareas.card}>
           <div className="custom-card-header">
             <div className="custom-header-content"> 
               <h6 className="custom-header-title">Tareas Asignadas</h6>
@@ -96,7 +96,7 @@ const TablaDeTareas = ({ user }) => {
 
           <div>
             <select
-              className="custom-select-filtro"
+              className={tareas.custom_select_filtro}
               value={orden}
               onChange={(e) => setOrden(e.target.value)}
             >
@@ -107,9 +107,9 @@ const TablaDeTareas = ({ user }) => {
             </select>
           </div>
 
-          <div className="card-body">
-            <div className="table-responsive">
-              <table className="task-table">
+          <div className={tareas.card_body}>
+            <div className={tareas.table_responsive}>
+              <table className={tareas.task_table}>
                 <thead>
                   <tr>
                     <th>Administrador de grupo</th>
@@ -135,7 +135,7 @@ const TablaDeTareas = ({ user }) => {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="5" className="sin_tareas_asignadas">
+                      <td colSpan="5" className={tareas.sin_tareas_asignadas}>
                         <p>No tienes tareas asignadas actualmente.</p>
                       </td>
                     </tr>

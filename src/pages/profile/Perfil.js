@@ -1,4 +1,4 @@
-import './Perfil.css';
+import perfil from './Perfil.module.css';
 import { useState } from 'react';
 
 function Perfil({ user, onUpdateUser }) {
@@ -23,25 +23,25 @@ function Perfil({ user, onUpdateUser }) {
   };
 
   return (
-    <div className="profile-container">
-      <div className="card">
+    <div className={perfil.profile_container}>
+      <div className={perfil.card}>
           <div className="custom-card-header">
             <div className="custom-header-content">
               <h6 className="custom-header-title">Perfil de Usuario</h6>
             </div>
           </div>
 
-          <div className="user-info-profile">
-            <img src="/team-7.jpeg" alt="user-photo" className="avatar-profile"/>
-            <div className="user-details">
-              <p className="user-name-profile">{user.username}</p>
-              <p className="user-email-profile">{user.useremail}</p>
+          <div className={perfil.user_info_profile}>
+            <img src="/team-7.jpeg" alt="user-photo" className={perfil.avatar_profile}/>
+            <div className={perfil.user_details}>
+              <p className={perfil.user_name_profile}>{user.username}</p>
+              <p className={perfil.user_email_profile}>{user.useremail}</p>
             </div>
           </div>
 
           <div>
             <form onSubmit={handleUpdate}>
-              <ul className="form-list">
+              <ul className={perfil.form_list}>
                 <li>
                   <label htmlFor="email">Cambiar correo</label>
                   <input id="email" value={useremail} onChange={(e) => setUserEmail(e.target.value)} placeholder="nuevo correo" type="email" />
@@ -54,18 +54,18 @@ function Perfil({ user, onUpdateUser }) {
                   <label htmlFor="repeat-password">Repetir contraseña</label>
                   <input id="repeat-password" value={userpasswordrepetir} onChange={(e) => setUserPasswordRepetir(e.target.value)} placeholder="repetir contraseña" type="password" />
                 </li>
-                <li className="button-group">
-                  <button type="submit" className="btn-accept">Aceptar</button>
-                  <button type="button" className="btn-cancel">Cancelar</button>
+                <li className={perfil.button_group}>
+                  <button type="submit" className={perfil.btn_accept}>Aceptar</button>
+                  <button type="button" className={perfil.btn_cancel}>Cancelar</button>
                 </li>
               </ul>
             </form>
           </div>
 
-          <div className="delete-account-section">
-            <p className="delete-warning">¡Advertencia! Eliminar tu cuenta es irreversible.</p>
-            <p className="delete-info">Al eliminar tu cuenta, perderás todos tus datos y no podrás recuperarlos.</p>
-            <button className="btn-delete">Eliminar cuenta</button>
+          <div className={perfil.delete_account_section}>
+            <p className={perfil.delete_warning}>¡Advertencia! Eliminar tu cuenta es irreversible.</p>
+            <p className={perfil.delete_info}>Al eliminar tu cuenta, perderás todos tus datos y no podrás recuperarlos.</p>
+            <button className={perfil.btn_delete}>Eliminar cuenta</button>
           </div>
       </div>
     </div>

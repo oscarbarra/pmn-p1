@@ -1,5 +1,5 @@
 
-.grupos-container {
+.grupos_container {
   height: 100vh;
 }
   
@@ -7,7 +7,7 @@
   background-color: #ffffff;
 }
 
-.groups-section {
+.groups_section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 0 1rem;

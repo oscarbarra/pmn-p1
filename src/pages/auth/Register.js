@@ -1,4 +1,4 @@
-import './Autentificacion.css';
+import auth from './Autentificacion.module.css';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -39,10 +39,10 @@ function Register({ users }) {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleRegister} className="form-wrapper">
+    <div className={auth.container}>
+      <form onSubmit={handleRegister} className={auth.form_wrapper}>
         <input 
-          className="form-control"
+          className={auth.form_control}
           id="user"
           type="text" 
           placeholder="Nombre de Usuario" 
@@ -51,7 +51,7 @@ function Register({ users }) {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input 
-          className="form-control"
+          className={auth.form_control}
           id="email" 
           type="text" 
           placeholder="Correo" 
@@ -60,7 +60,7 @@ function Register({ users }) {
           onChange={(e) => setUseremail(e.target.value)}
         />
         <input 
-          className="form-control"
+          className={auth.form_control}
           id="password" 
           type="password" 
           placeholder="Contraseña" 
@@ -69,7 +69,7 @@ function Register({ users }) {
           onChange={(e) => setUserpassword(e.target.value)}
         />
         <input 
-          className="form-control"
+          className={auth.form_control}
           id="password_confirmation" 
           type="password" 
           placeholder="Repetir Contraseña" 
@@ -77,8 +77,8 @@ function Register({ users }) {
           value={userpasswordconfirm}
           onChange={(e) => setUserpasswordconfirm(e.target.value)}
         />
-        <button type="submit" className="btn-register">Registrarse </button>
-        <p className="login-link">
+        <button type="submit" className={auth.btn_register}>Registrarse </button>
+        <p className={auth.login_link}>
           ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
         </p>
       </form>

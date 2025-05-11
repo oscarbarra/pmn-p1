@@ -1,0 +1,20 @@
+
+.card {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e5e5;
+  }
+
+/* Estilos para los graficos*/
+.dashboard_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.grafico_row {
+    padding: 0 1rem;
+}
+
+.span_2 {
+    grid-column: span 2;
+}

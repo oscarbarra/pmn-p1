@@ -1,17 +1,17 @@
-import './Grupos.css';
+import grupos from './Grupos.module.css';
 import ViewGroups from '../../components/viewGroups/ViewGroups';
 
 function Grupos() {
   return (
-    <div className="grupos-container">
-      <div className="card">
+    <div className={grupos.grupos_container}>
+      <div className={grupos.card}>
           <div className="custom-card-header">
             <div className="custom-header-content">
               <h6 className="custom-header-title">Grupos a los que perteneces</h6>
             </div>
           </div>
 
-          <div className="groups-section">
+          <div className={grupos.groups_section}>
           <ViewGroups nombre={"Grupo 1"} area={"administración"} />
           <ViewGroups nombre={"Grupo 2"} area={"administración"} />
           <ViewGroups nombre={"Grupo 3"} area={"administración"} />

@@ -1,4 +1,4 @@
-import './Autentificacion.css';
+import auth from './Autentificacion.module.css';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -31,10 +31,10 @@ function Login({ onLogin, users }) {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit} className="form-wrapper">
+    <div className={auth.container}>
+      <form onSubmit={handleSubmit} className={auth.form_wrapper}>
         <input
-          className="form-control"
+          className={auth.form_control}
           id="email"
           type="text"
           placeholder="Correo"
@@ -43,7 +43,7 @@ function Login({ onLogin, users }) {
           onChange={(e) => setUseremail(e.target.value)}
         />
         <input
-          className="form-control"
+          className={auth.form_control}
           id="password"
           type="password"
           placeholder="Contraseña"
@@ -51,8 +51,8 @@ function Login({ onLogin, users }) {
           value={userpassword}
           onChange={(e) => setUserpassword(e.target.value)}
         />
-        <button type="submit" className="btn-login">Iniciar Sesión</button>
-        <p className="register-link">
+        <button type="submit" className={auth.btn_login}>Iniciar Sesión</button>
+        <p className={auth.register_link}>
           ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
         </p>
       </form>

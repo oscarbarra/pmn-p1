@@ -16,13 +16,13 @@
     width: 100%;
   }
   
-.navbar-nav {
+.navbar_nav {
     list-style: none;
     padding-left: 0;
     margin: 0;
   }
   
-.nav-link {
+.nav_link {
     display: flex;
     align-items: center;
     padding: 0.5rem;
@@ -32,27 +32,27 @@
     transition: background-color 0.2s ease;
   }
   
-.nav-link:hover {
+.nav_link:hover {
     background-color: #f0f0f0;
   }
   
-.nav-link.active {
+.active {
     background-image: linear-gradient(to right, #0f0f0f, #1a1818, #414141);
     color: white;
   }
 
-.nav-link i {
+.nav_link i {
     margin-left: 5px;
     font-size: 1.1rem;
     opacity: 0.6;
   }
 
-.nav-link-text {
+.nav_link_text {
     margin-left: 0.5rem;
     font-size: 0.9rem;
   }
   
-.section-title h6 {
+.section_title h6 {
     font-size: 0.75rem;
     text-transform: uppercase;
     font-weight: bold;

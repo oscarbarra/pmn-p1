@@ -1,3 +1,6 @@
+/* ------------------------ */
+/* Estilos de la aplicación */ 
+/* ------------------------ */
 .app-container {
   display: flex;
   background-color: #F5F5F5;
@@ -5,6 +8,10 @@
   height: 100%;
   overflow: hidden;
 }
+
+/* ---------------------- */
+/* Estilos de la Side Bar */
+/* ---------------------- */
 
 /* Sidebar visible en pantallas grandes */
 .with-sidebar .main-content {
@@ -22,4 +29,31 @@
   .with-sidebar .main-content {
     margin-left: 0;
   }
+}
+
+/* ------------------------------- */
+/* Estilos Globales de las Paginas */
+/* ------------------------------- */
+
+.custom-card-header {
+  position: relative;
+  padding: 1rem;
+  margin: -2rem 0 0 0;
+  z-index: 2;
+}
+
+.custom-header-content {
+  background: linear-gradient(to right, #0f0f0f, #1a1818, #414141);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.7rem 0;
+}
+
+.custom-header-title {
+  color: #ffffff;
+  text-transform: capitalize;
+  padding-left: 0.75rem;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
