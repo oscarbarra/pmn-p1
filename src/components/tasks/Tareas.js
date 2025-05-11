@@ -1,9 +1,9 @@
 import React from 'react';
 import tareas from './Tareas.module.css';
 
-const Tareas = ({ leaderName, leaderEmail, groupName, groupRole, taskName, status, deadline }) => {
+const Tareas = ({ leaderName, leaderEmail, groupName, groupRole, taskName, status, deadline, onClick}) => {
   return (
-    <tr className={tareas.task_container}>
+    <tr className={tareas.task_container} onClick={onClick}>
       <td>
         <div className={tareas.user_info}>
           <img src="/team-7.jpeg" alt="" className={tareas.avatar} />

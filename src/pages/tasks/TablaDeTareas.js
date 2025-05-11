@@ -1,84 +1,143 @@
 import React, { useState } from 'react';
 import tareas from './TablaDeTareas.module.css';
 import Tareas from '../../components/tasks/Tareas';
+import ModalTarea from '../../components/tasks/ModalTarea';
 
 const TablaDeTareas = ({ user }) => {
   const [orden, setOrden] = useState('fecha-desc');
+  const [tareaSeleccionada, setTareaSeleccionada] = useState(null);
+  const handleAbrirModal = (tarea) => setTareaSeleccionada(tarea);
+  const handleCerrarModal = () => setTareaSeleccionada(null);
+
+  class PrototipoTareas {
+    constructor(
+      id,
+      titulo,
+      descripcion,
+      prioridad,
+      estado,
+      fechaCreacion,
+      fechaLimite,
+      correoUsuario,
+      nombreLider,
+      correoLider,
+      nombreGrupo,
+      rolEnGrupo
+    ) {
+      this.id = id;
+      this.titulo = titulo;
+      this.descripcion = descripcion;
+      this.prioridad = prioridad;
+      this.estado = estado;
+      this.fechaCreacion = fechaCreacion;
+      this.fechaLimite = fechaLimite;
+      this.correoUsuario = correoUsuario;
+      this.nombreLider = nombreLider;
+      this.correoLider = correoLider;
+      this.nombreGrupo = nombreGrupo;
+      this.rolEnGrupo = rolEnGrupo;
+    }
+  
+    marcarComoCompletada() {
+      this.estado = "Completada";
+    }
+  
+    estaVencida() {
+      const hoy = new Date();
+      const limite = new Date(this.fechaLimite);
+      return hoy > limite;
+    }
+  }
 
   const tareasData = [
-    {
-      id: 1,
-      userEmail: 'obarra@gmail.com',
-      leaderName: 'Cristhofer Jara',
-      leaderEmail: 'crithofer@gmail.com',
-      groupName: 'Grupo 1',
-      groupRole: 'miembro',
-      taskName: 'Generar formulario de inicio de sesión',
-      status: 'Finalizada',
-      deadline: '2024-12-30',
-    },
-    {
-      id: 2,
-      userEmail: 'obarra@gmail.com',
-      leaderName: 'Cristhofer Jara',
-      leaderEmail: 'crithofer@gmail.com',
-      groupName: 'Grupo 2',
-      groupRole: 'miembro',
-      taskName: 'Diseñar dashboard',
-      status: 'En Proceso',
-      deadline: '2025-05-19',
-    },
-    {
-      id: 3,
-      userEmail: 'obarra@gmail.com',
-      leaderName: 'Felipe Ocampos',
-      leaderEmail: 'felipe@gmail.com',
-      groupName: 'Grupo 3',
-      groupRole: 'miembro',
-      taskName: 'Generar formulario de inicio de sesión',
-      status: 'En Proceso',
-      deadline: '2025-05-30',
-    },
-    {
-      id: 4,
-      userEmail: 'admin@gmail.com',
-      leaderName: 'Cristhofer Jara',
-      leaderEmail: 'crithofer@gmail.com',
-      groupName: 'Grupo 4',
-      groupRole: 'miembro',
-      taskName: 'Diseñar dashboard',
-      status: 'Finalizado',
-      deadline: '2023-02-19',
-    },
-    {
-      id: 5,
-      userEmail: 'admin@gmail.com',
-      leaderName: 'Snaw Flake',
-      leaderEmail: 'snawflk@gmail.com',
-      groupName: 'Grupo 6',
-      groupRole: 'miembro',
-      taskName: 'Diseñar dashboard',
-      status: 'En Proceso',
-      deadline: '2025-05-29',
-    },
+    new PrototipoTareas(
+      1,
+      "Generar formulario de inicio de sesión",
+      "Crear un formulario funcional con validación",
+      "Alta",
+      "Finalizada",
+      "2024-12-01",
+      "2024-12-30",
+      "obarra@gmail.com",
+      "Cristhofer Jara",
+      "crithofer@gmail.com",
+      "Grupo 1",
+      "miembro"
+    ),
+    new PrototipoTareas(
+      2,
+      "Diseñar dashboard",
+      "Diseño UI/UX del panel principal",
+      "Media",
+      "En Proceso",
+      "2025-05-01",
+      "2025-05-19",
+      "obarra@gmail.com",
+      "Cristhofer Jara",
+      "crithofer@gmail.com",
+      "Grupo 2",
+      "miembro"
+    ),
+    new PrototipoTareas(
+      3,
+      "Generar formulario de inicio de sesión",
+      "Crear un formulario funcional con validación",
+      "Alta",
+      "En Proceso",
+      "2025-05-01",
+      "2025-05-30",
+      "obarra@gmail.com",
+      "Felipe Ocampos",
+      "felipe@gmail.com",
+      "Grupo 3",
+      "miembro"
+    ),
+    new PrototipoTareas(
+      4,
+      "Diseñar dashboard",
+      "Diseño UI/UX del panel principal",
+      "Media",
+      "Finalizada",
+      "2023-01-15",
+      "2023-02-19",
+      "admin@gmail.com",
+      "Cristhofer Jara",
+      "crithofer@gmail.com",
+      "Grupo 4",
+      "miembro"
+    ),
+    new PrototipoTareas(
+      5,
+      "Diseñar dashboard",
+      "Diseño UI/UX del panel principal",
+      "Media",
+      "En Proceso",
+      "2025-05-05",
+      "2025-05-29",
+      "admin@gmail.com",
+      "Snaw Flake",
+      "snawflk@gmail.com",
+      "Grupo 6",
+      "miembro"
+    )
   ];
 
   const userEmailLogeado = user.useremail;
 
   const tareasFiltradas = tareasData.filter(
-    (t) => t.userEmail === userEmailLogeado
+    (t) => t.correoUsuario === userEmailLogeado
   );
 
   const tareasOrdenadas = [...tareasFiltradas].sort((a, b) => {
     switch (orden) {
       case 'fecha-asc':
-        return new Date(a.deadline) - new Date(b.deadline);
+        return new Date(a.fechaLimite) - new Date(b.fechaLimite);
       case 'fecha-desc':
-        return new Date(b.deadline) - new Date(a.deadline);
+        return new Date(b.fechaLimite) - new Date(a.fechaLimite);
       case 'grupo-asc':
-        return a.groupName.localeCompare(b.groupName);
+        return a.nombreGrupo.localeCompare(b.nombreGrupo);
       case 'grupo-desc':
-        return b.groupName.localeCompare(a.groupName);
+        return b.nombreGrupo.localeCompare(a.nombreGrupo);
       default:
         return 0;
     }
@@ -124,13 +183,14 @@ const TablaDeTareas = ({ user }) => {
                     tareasOrdenadas.map((tarea) => (
                       <Tareas
                         key={tarea.id}
-                        leaderName={tarea.leaderName}
-                        leaderEmail={tarea.leaderEmail}
-                        groupName={tarea.groupName}
-                        groupRole={tarea.groupRole}
-                        taskName={tarea.taskName}
-                        status={tarea.status}
-                        deadline={tarea.deadline}
+                        leaderName={tarea.nombreLider}
+                        leaderEmail={tarea.correoLider}
+                        groupName={tarea.nombreGrupo}
+                        groupRole={tarea.rolEnGrupo}
+                        taskName={tarea.titulo}
+                        status={tarea.estado}
+                        deadline={tarea.fechaLimite}
+                        onClick={() => handleAbrirModal(tarea)}
                       />
                     ))
                   ) : (
@@ -142,6 +202,10 @@ const TablaDeTareas = ({ user }) => {
                   )}
                 </tbody>
               </table>
+
+              {tareaSeleccionada && (
+                <ModalTarea tarea={tareaSeleccionada} onClose={handleCerrarModal} />
+              )}
             </div>
           </div>
 
