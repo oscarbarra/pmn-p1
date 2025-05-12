@@ -5,24 +5,41 @@ const ModalTarea = ({ tarea, onClose }) => {
   if (!tarea) return null;
 
   return (
-    <div className={styles.modal} onClick={onClose}>
-      <div className={styles.contenido} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.cerrar} onClick={onClose}>✕</button>
-        <h2>Detalles de la tarea</h2>
-        <ul>
-          <li><strong>ID:</strong> {tarea.id}</li>
-          <li><strong>Título:</strong> {tarea.titulo}</li>
-          <li><strong>Descripción:</strong> {tarea.descripcion}</li>
-          <li><strong>Prioridad:</strong> {tarea.prioridad}</li>
-          <li><strong>Estado:</strong> {tarea.estado}</li>
-          <li><strong>Fecha de creación:</strong> {tarea.fechaCreacion}</li>
-          <li><strong>Fecha límite:</strong> {tarea.fechaLimite}</li>
-          <li><strong>Correo usuario:</strong> {tarea.correoUsuario}</li>
-          <li><strong>Nombre líder:</strong> {tarea.nombreLider}</li>
-          <li><strong>Correo líder:</strong> {tarea.correoLider}</li>
-          <li><strong>Grupo:</strong> {tarea.nombreGrupo}</li>
-          <li><strong>Rol en grupo:</strong> {tarea.rolEnGrupo}</li>
-        </ul>
+    <div className={styles.modalOverlay} onClick={onClose}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.closeButton} onClick={onClose}>✕</button>
+
+        <h2 className={styles.title}>Detalles de la Tarea</h2>
+
+        <div className={styles.section}>
+          <h3>Información General</h3>
+          <div className={styles.grid}>
+            <div><strong>ID:</strong> {tarea.id}</div>
+            <div><strong>Título:</strong> {tarea.titulo}</div>
+            <div className={styles.full}><strong>Descripción:</strong> {tarea.descripcion}</div>
+            <div><strong>Prioridad:</strong> {tarea.prioridad}</div>
+            <div><strong>Estado:</strong> {tarea.estado}</div>
+            <div><strong>Fecha creación:</strong> {tarea.fechaCreacion}</div>
+            <div><strong>Fecha límite:</strong> {tarea.fechaLimite}</div>
+          </div>
+        </div>
+
+        <div className={styles.section}>
+          <h3>Asignación</h3>
+          <div className={styles.grid}>
+            <div><strong>Usuario:</strong> {tarea.correoUsuario}</div>
+            <div><strong>Rol en grupo:</strong> {tarea.rolEnGrupo}</div>
+          </div>
+        </div>
+
+        <div className={styles.section}>
+          <h3>Líder y Grupo</h3>
+          <div className={styles.grid}>
+            <div><strong>Nombre del líder:</strong> {tarea.nombreLider}</div>
+            <div><strong>Correo del líder:</strong> {tarea.correoLider}</div>
+            <div className={styles.full}><strong>Grupo:</strong> {tarea.nombreGrupo}</div>
+          </div>
+        </div>
       </div>
     </div>
   );
