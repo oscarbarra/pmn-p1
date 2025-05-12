@@ -3,8 +3,30 @@ import Tareas from '../../components/tasks/Tareas';
 import ViewGroups from '../../components/viewGroups/ViewGroups';
 import TareasAtrasadas from '../../components/graphs/TareasAtrasadas';
 import TareasPorMesGraph from '../../components/graphs/TareasPorMes';
+import { useEffect, useState } from 'react';
 
-function Home() {
+function Home( {user, tareasCreadas } ) {
+  const [tareasFiltradas, setTareasFiltradas] = useState([]);
+
+  useEffect(() => {
+    // Filtrar tareas por el correo del usuario
+    const tareasDelUsuario = tareasCreadas.filter(tarea => tarea.correoUsuario === user.useremail);
+
+    // Asignar un valor numérico a la prioridad (0 = Alta, 1 = Media, 2 = Baja)
+    const prioridadMap = {
+      "Alta": 0,
+      "Media": 1,
+      "Baja": 2
+    };
+
+    // Ordenar las tareas por prioridad
+    const tareasOrdenadas = tareasDelUsuario.sort((a, b) => {
+      return prioridadMap[a.prioridad] - prioridadMap[b.prioridad];
+    });
+
+    setTareasFiltradas(tareasOrdenadas);
+  }, [user, tareasCreadas]);
+  
   return (
     <div className={home.home_container}> 
       <div className={home.card}>
@@ -28,51 +50,26 @@ function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <Tareas 
-                    leaderName="Oscar Barra"
-                    leaderEmail="obarra@micorreo.cl"
-                    groupName="Grupo 2"
-                    groupRole="miembro"
-                    taskName="Generar formulario de inicio de sesión"
-                    status="En Proceso"
-                    deadline="5/05/2025"
-                  />
-                  <Tareas 
-                    leaderName="Oscar Barra"
-                    leaderEmail="obarra@micorreo.cl"
-                    groupName="Grupo 2"
-                    groupRole="miembro"
-                    taskName="Generar formulario de inicio de sesión"
-                    status="En Proceso"
-                    deadline="5/05/2025"
-                  />
-                  <Tareas 
-                    leaderName="Oscar Barra"
-                    leaderEmail="obarra@micorreo.cl"
-                    groupName="Grupo 2"
-                    groupRole="miembro"
-                    taskName="Generar formulario de inicio de sesión"
-                    status="En Proceso"
-                    deadline="5/05/2025"
-                  />
-                  <Tareas 
-                    leaderName="Oscar Barra"
-                    leaderEmail="obarra@micorreo.cl"
-                    groupName="Grupo 2"
-                    groupRole="miembro"
-                    taskName="Generar formulario de inicio de sesión"
-                    status="En Proceso"
-                    deadline="5/05/2025"
-                  />
-                  <Tareas 
-                    leaderName="Oscar Barra"
-                    leaderEmail="obarra@micorreo.cl"
-                    groupName="Grupo 2"
-                    groupRole="miembro"
-                    taskName="Generar formulario de inicio de sesión"
-                    status="En Proceso"
-                    deadline="5/05/2025"
-                  />
+                {tareasFiltradas.length > 0 ? (
+                    tareasFiltradas.map((tarea) => (
+                      <Tareas
+                        key={tarea.id}
+                        leaderName={tarea.nombreLider}
+                        leaderEmail={tarea.correoLider}
+                        groupName={tarea.nombreGrupo}
+                        groupRole={tarea.rolEnGrupo}
+                        taskName={tarea.titulo}
+                        status={tarea.estado}
+                        deadline={tarea.fechaLimite}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className={home.sin_tareas_asignadas}>
+                        <p>No se encontrarón tareas</p>
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>

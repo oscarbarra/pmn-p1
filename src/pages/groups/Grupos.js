@@ -3,7 +3,7 @@ import ViewGroups from '../../components/viewGroups/ViewGroups';
 import ModalGrupo from '../../components/groups/ModalGrupo'; // Asegúrate que la ruta sea correcta
 import { useState } from 'react';
 
-function Grupos({ users, tareasCreadas, setTareasCreadas }) {
+function Grupos({ user, users, tareasCreadas, setTareasCreadas }) {
   const [grupoSeleccionado, setGrupoSeleccionado] = useState(null);
   const handleAbrirModal = (grupo) => setGrupoSeleccionado(grupo);
   const handleCerrarModal = () => setGrupoSeleccionado(null);
@@ -61,15 +61,25 @@ function Grupos({ users, tareasCreadas, setTareasCreadas }) {
           </div>
         </div>
 
+        {gruposCreados.some(grupo =>
+          grupo.integrantesGrupo.some(miembro => miembro.correo === user.useremail)
+        ) ? null : (
+          <p className={grupos.no_groups_message}>No perteneces a ningún grupo actualmente.</p>
+        )}
+
         <div className={grupos.groups_section}>
-          {gruposCreados.map((grupo) => (
-            <ViewGroups
-              key={grupo.id}
-              nombre={grupo.nombreGrupo}
-              area={grupo.areaTrabajo}
-              onClick={() => handleAbrirModal(grupo)}
-            />
-          ))}
+          {gruposCreados
+            .filter(grupo => 
+              grupo.integrantesGrupo.some(miembro => miembro.correo === user.useremail)
+            )
+            .map((grupo) => (
+              <ViewGroups
+                key={grupo.id}
+                nombre={grupo.nombreGrupo}
+                area={grupo.areaTrabajo}
+                onClick={() => handleAbrirModal(grupo)}
+              />
+            ))}
         </div>
       </div>
 

@@ -171,7 +171,7 @@ function App() {
             path="/"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Home />
+                <Home user={currentUser}  tareasCreadas={tareasCreadas}/>
               </ProtectedRoute>
             }
           />
@@ -189,7 +189,7 @@ function App() {
             path="/grupos"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Grupos users={fakeUsers} tareasCreadas={tareasCreadas} setTareasCreadas={setTareasCreadas}/>
+                <Grupos user={currentUser} users={fakeUsers} tareasCreadas={tareasCreadas} setTareasCreadas={setTareasCreadas}/>
               </ProtectedRoute>
             }
           />
