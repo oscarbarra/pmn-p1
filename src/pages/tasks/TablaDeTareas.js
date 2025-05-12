@@ -3,7 +3,7 @@ import tareas from './TablaDeTareas.module.css';
 import Tareas from '../../components/tasks/Tareas';
 import ModalTarea from '../../components/tasks/ModalTarea';
 
-const TablaDeTareas = ({ user }) => {
+const TablaDeTareas = ({ user, tareasCreadas}) => {
   const orden = 'fecha-desc';
   const [busqueda, setBusqueda] = useState("");
   const [filtroEstado, setFiltroEstado] = useState("todos");
@@ -12,122 +12,9 @@ const TablaDeTareas = ({ user }) => {
   const handleAbrirModal = (tarea) => setTareaSeleccionada(tarea);
   const handleCerrarModal = () => setTareaSeleccionada(null);
 
-  class PrototipoTareas {
-    constructor(
-      id,
-      titulo,
-      descripcion,
-      prioridad,
-      estado,
-      fechaCreacion,
-      fechaLimite,
-      correoUsuario,
-      nombreLider,
-      correoLider,
-      nombreGrupo,
-      rolEnGrupo
-    ) {
-      this.id = id;
-      this.titulo = titulo;
-      this.descripcion = descripcion;
-      this.prioridad = prioridad;
-      this.estado = estado;
-      this.fechaCreacion = fechaCreacion;
-      this.fechaLimite = fechaLimite;
-      this.correoUsuario = correoUsuario;
-      this.nombreLider = nombreLider;
-      this.correoLider = correoLider;
-      this.nombreGrupo = nombreGrupo;
-      this.rolEnGrupo = rolEnGrupo;
-    }
-  
-    marcarComoCompletada() {
-      this.estado = "Completada";
-    }
-  
-    estaVencida() {
-      const hoy = new Date();
-      const limite = new Date(this.fechaLimite);
-      return hoy > limite;
-    }
-  }
-
-  const tareasData = [
-    new PrototipoTareas(
-      1,
-      "Generar formulario de inicio de sesión",
-      "Crear un formulario funcional con validación",
-      "Alta",
-      "Finalizada",
-      "2024-12-01",
-      "2024-12-30",
-      "obarra@gmail.com",
-      "Cristhofer Jara",
-      "crithofer@gmail.com",
-      "Grupo 1",
-      "miembro"
-    ),
-    new PrototipoTareas(
-      2,
-      "Diseñar dashboard",
-      "Diseño UI/UX del panel principal",
-      "Media",
-      "En Proceso",
-      "2025-05-01",
-      "2025-05-19",
-      "obarra@gmail.com",
-      "Cristhofer Jara",
-      "crithofer@gmail.com",
-      "Grupo 2",
-      "miembro"
-    ),
-    new PrototipoTareas(
-      3,
-      "Generar formulario de inicio de sesión",
-      "Crear un formulario funcional con validación",
-      "Alta",
-      "En Proceso",
-      "2025-05-01",
-      "2025-05-30",
-      "obarra@gmail.com",
-      "Felipe Ocampos",
-      "felipe@gmail.com",
-      "Grupo 3",
-      "miembro"
-    ),
-    new PrototipoTareas(
-      4,
-      "Diseñar dashboard",
-      "Diseño UI/UX del panel principal",
-      "Media",
-      "Finalizada",
-      "2023-01-15",
-      "2023-02-19",
-      "admin@gmail.com",
-      "Cristhofer Jara",
-      "crithofer@gmail.com",
-      "Grupo 4",
-      "miembro"
-    ),
-    new PrototipoTareas(
-      5,
-      "Diseñar dashboard",
-      "Diseño UI/UX del panel principal",
-      "Media",
-      "En Proceso",
-      "2025-05-05",
-      "2025-05-29",
-      "admin@gmail.com",
-      "Snaw Flake",
-      "snawflk@gmail.com",
-      "Grupo 6",
-      "miembro"
-    )
-  ];
-
   const userEmailLogeado = user.useremail;
 
-  const tareasFiltradas = tareasData.filter((t) => {
+  const tareasFiltradas = tareasCreadas.filter((t) => {
     const coincideUsuario = t.correoUsuario === userEmailLogeado;
   
     const coincideBusqueda =

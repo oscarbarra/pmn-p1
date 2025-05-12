@@ -1,26 +1,29 @@
+import viewGrupos from './ViewGroups.module.css';
 
-import viewGrupos from './ViewGroups.module.css'
-
-function ViewGroups({ nombre, area }) {
+function ViewGroups({ nombre, area, onClick }) {
   return (
-    <div className={viewGrupos.group_card}>
-        <div>
-            <div className={viewGrupos.group_content}>
-                <h6 className={viewGrupos.card_title}> {nombre} </h6>
-                <p className={viewGrupos.card_text}> {area} </p>
+    <div
+      className={viewGrupos.group_card}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && onClick?.()}
+    >
+      <div>
+        <div className={viewGrupos.group_content}>
+          <h6 className={viewGrupos.card_title}>{nombre}</h6>
+          <p className={viewGrupos.card_text}>{area}</p>
 
-                <div className={viewGrupos.chart_wrapper}>
-                
-                </div>
+          <div className={viewGrupos.chart_wrapper}></div>
 
-                <hr className={viewGrupos.divider}/>
+          <hr className={viewGrupos.divider} />
 
-                <div className={viewGrupos.card_footer}>
-                    <i className="material-symbols-rounded icon">groups</i>
-                    <p className={viewGrupos.footer_text}>Miembros del grupo</p>
-                </div>
-            </div>
+          <div className={viewGrupos.card_footer}>
+            <i className="material-symbols-rounded icon">groups</i>
+            <p className={viewGrupos.footer_text}>Miembros del grupo</p>
+          </div>
         </div>
+      </div>
     </div>
   );
 }
