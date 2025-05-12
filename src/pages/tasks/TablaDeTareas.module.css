@@ -34,6 +34,20 @@
   outline: none;
 }
 
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.input_busqueda {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
 /* Estilos de la Tabla*/
 .card_body {
   flex: 1 1 auto;

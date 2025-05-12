@@ -4,7 +4,10 @@ import Tareas from '../../components/tasks/Tareas';
 import ModalTarea from '../../components/tasks/ModalTarea';
 
 const TablaDeTareas = ({ user }) => {
-  const [orden, setOrden] = useState('fecha-desc');
+  const orden = 'fecha-desc';
+  const [busqueda, setBusqueda] = useState("");
+  const [filtroEstado, setFiltroEstado] = useState("todos");
+  const [filtroPrioridad, setFiltroPrioridad] = useState("todas");
   const [tareaSeleccionada, setTareaSeleccionada] = useState(null);
   const handleAbrirModal = (tarea) => setTareaSeleccionada(tarea);
   const handleCerrarModal = () => setTareaSeleccionada(null);
@@ -124,9 +127,22 @@ const TablaDeTareas = ({ user }) => {
 
   const userEmailLogeado = user.useremail;
 
-  const tareasFiltradas = tareasData.filter(
-    (t) => t.correoUsuario === userEmailLogeado
-  );
+  const tareasFiltradas = tareasData.filter((t) => {
+    const coincideUsuario = t.correoUsuario === userEmailLogeado;
+  
+    const coincideBusqueda =
+      t.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+      t.nombreGrupo.toLowerCase().includes(busqueda.toLowerCase()) ||
+      t.nombreLider.toLowerCase().includes(busqueda.toLowerCase());
+  
+    const coincideEstado =
+      filtroEstado === "todos" || t.estado === filtroEstado;
+  
+    const coincidePrioridad =
+      filtroPrioridad === "todas" || t.prioridad === filtroPrioridad;
+  
+    return coincideUsuario && coincideBusqueda && coincideEstado && coincidePrioridad;
+  });
 
   const tareasOrdenadas = [...tareasFiltradas].sort((a, b) => {
     switch (orden) {
@@ -153,16 +169,35 @@ const TablaDeTareas = ({ user }) => {
             </div>          
           </div>
 
-          <div>
+          <div className={tareas.filtros}>
+            <input
+              type="text"
+              placeholder="Buscar por título, grupo o líder..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              className={tareas.input_busqueda}
+            />
+
             <select
+              value={filtroEstado}
+              onChange={(e) => setFiltroEstado(e.target.value)}
               className={tareas.custom_select_filtro}
-              value={orden}
-              onChange={(e) => setOrden(e.target.value)}
             >
-              <option value="fecha-desc">Fecha Límite ↓</option>
-              <option value="fecha-asc">Fecha Límite ↑</option>
-              <option value="grupo-asc">Grupo A-Z</option>
-              <option value="grupo-desc">Grupo Z-A</option>
+              <option value="todos">Todos los estados</option>
+              <option value="En Proceso">En Proceso</option>
+              <option value="Finalizada">Finalizada</option>
+              <option value="Pendiente">Pendiente</option>
+            </select>
+
+            <select
+              value={filtroPrioridad}
+              onChange={(e) => setFiltroPrioridad(e.target.value)}
+              className={tareas.custom_select_filtro}
+            >
+              <option value="todas">Todas las prioridades</option>
+              <option value="Alta">Alta</option>
+              <option value="Media">Media</option>
+              <option value="Baja">Baja</option>
             </select>
           </div>
 
@@ -196,7 +231,7 @@ const TablaDeTareas = ({ user }) => {
                   ) : (
                     <tr>
                       <td colSpan="5" className={tareas.sin_tareas_asignadas}>
-                        <p>No tienes tareas asignadas actualmente.</p>
+                        <p>No se encontrarón tareas</p>
                       </td>
                     </tr>
                   )}
